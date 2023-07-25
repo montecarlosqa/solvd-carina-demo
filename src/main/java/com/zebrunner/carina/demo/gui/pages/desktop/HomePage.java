@@ -40,6 +40,24 @@ public class HomePage extends HomePageBase {
     @FindBy(id = "footmenu")
     private FooterMenu footerMenu;
 
+    @FindBy(xpath = "//a[@id='login-active']/i[@class='head-icon icon-login']")
+    private ExtendedWebElement logInButton;
+
+    @FindBy(xpath = "/html//input[@id='email']")
+    private ExtendedWebElement emailField;
+
+    @FindBy(xpath = "/html//input[@id='upass']")
+    private ExtendedWebElement passwordField;
+
+    @FindBy(id = "nick-submit")
+    private ExtendedWebElement submitLoginButton;
+
+    @FindBy(xpath = "/html//div[@id='body']//p[.='Reason: User record not found.']")
+    private ExtendedWebElement userNotFoundText;
+
+    @FindBy(xpath = "/html//div[@id='body']//p[.='Reason: Wrong password.']")
+    private ExtendedWebElement wrongPasswordText;
+
     @FindBy(xpath = "//div[contains(@class, 'brandmenu-v2')]//a")
     private List<ExtendedWebElement> brandLinks;
 
@@ -55,6 +73,30 @@ public class HomePage extends HomePageBase {
     public HomePage(WebDriver driver) {
         super(driver);
         setUiLoadedMarker(newsColumn);
+    }
+
+    public ExtendedWebElement getLogInButton(){
+        return logInButton;
+    }
+
+    public ExtendedWebElement getEmailField(){
+        return emailField;
+    }
+
+    public ExtendedWebElement getPasswordField(){
+        return passwordField;
+    }
+
+    public ExtendedWebElement getSubmitLoginButton(){
+        return submitLoginButton;
+    }
+
+    public ExtendedWebElement getUserNotFoundText(){
+        return userNotFoundText;
+    }
+
+    public ExtendedWebElement getWrongPasswordText(){
+        return wrongPasswordText;
     }
 
     @Override
